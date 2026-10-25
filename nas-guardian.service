@@ -1,0 +1,19 @@
+[Unit]
+Description=NAS Security Guardian (Attack & Intrusion Reporter with Active Firewall Bouncer)
+After=network.target docker.service
+
+[Service]
+Type=simple
+User=root
+ExecStart=/usr/local/bin/nas-guardian -config /etc/nas-guardian/config.json
+Restart=always
+RestartSec=5s
+
+# Security capabilities for iptables and low ports
+CapabilityBoundingSet=CAP_NET_BIND_SERVICE CAP_DAC_READ_SEARCH CAP_NET_ADMIN CAP_NET_RAW
+AmbientCapabilities=CAP_NET_ADMIN CAP_NET_RAW
+ProtectSystem=full
+ProtectHome=read-only
+
+[Install]
+WantedBy=multi-user.target

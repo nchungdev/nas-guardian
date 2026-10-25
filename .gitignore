@@ -1,0 +1,17 @@
+# Binaries
+bin/
+nas-guardian
+nas-guardian-linux
+*.exe
+
+# Local Machine Overrides & Secrets
+config.json
+config.mk
+*.env
+*.local
+
+# Logs & System files
+*.log
+.DS_Store
+.idea/
+.vscode/
